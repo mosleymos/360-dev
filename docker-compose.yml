@@ -3,8 +3,9 @@ services:
   web:
       image: hitalos/laravel:latest
       ports:
-          - 3000:80
-          - 3001:8000
+         #- 3000:80
+         #- 3001:8000
+          - 3001:80
       volumes:
           - ./:/var/www
       links:
@@ -17,6 +18,8 @@ services:
           DB_CONNECTION: mysql
   db:
       image: mysql
+      expose:
+          - "3306" 
       environment:
           # with mysql
           MYSQL_DATABASE: forge
